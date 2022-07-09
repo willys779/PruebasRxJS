@@ -1,0 +1,15 @@
+<div id="app">
+    <h1>Listado de Peliculas</h1>
+    <div class="search">
+        <!--<input type="text" #search placeholder="Buscar pelicula">
+        <img (click)="getMovies(search.value)" src="../../../assets/search.svg" alt="search">-->
+        <!--<input type="text" (change)="getMovies($event)" placeholder="Buscar pelicula">-->
+        <input type="text" #movieSearchInput placeholder="Buscar pelicula">
+    </div>
+    <div *ngIf="(movies$ | async) as movies; else nodata" class="container">
+        <app-card-movie *ngFor="let movie of movies" [movie]="movie"></app-card-movie>
+    </div>
+    <ng-template #nodata class="empty">
+        <h3>No se encontraron peliculas</h3>
+    </ng-template>
+</div>
